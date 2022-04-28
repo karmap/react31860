@@ -8,6 +8,7 @@ import ItemListContainer from './components/ItemListContainer';
 import Card from './components/Card';
 import Contador from './components/Contador';
 import DogsContainer from './components/DogsContainer';
+import RobotsContainer from './components/robots/RobotsContainer';
 
 function App() {
   
@@ -51,7 +52,8 @@ function App() {
       <Card title='Mi título' otroComponente={Saludo}></Card>
 
       <Contador></Contador> */}
-      <DogsContainer></DogsContainer>
+      {/* <DogsContainer></DogsContainer> */}
+      <RobotsContainer/>
     </>
   );
 }
