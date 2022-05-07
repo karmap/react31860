@@ -12,11 +12,18 @@ import RobotsContainer from './components/robots/RobotsContainer';
 import PokeContainer from './components/pokemon/PokeContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RobotDetail from './components/robots/RobotDetail';
+import { DarkModeContext } from './context/darkModeContext';
+import { useState } from 'react';
+import ToggleDarkMode from './components/ToggleDarkMode';
+import FavRobotsProvider from './context/favRobotsContext';
 
 function App() {
+
+  const [darkMode, setDarkMode] = useState(false)
   
-  //lógica
-  const miFuncion = () => {}
+  const darkModeHandler = () => {
+    setDarkMode( currentState => !currentState )
+  }
 
   const stylesP = {
     border: 'solid 2px blue',
@@ -28,15 +35,20 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <NavBar></NavBar>
-      <Routes>
-        <Route path='/' element={<Saludo name='Juan' age='24'/>}/>
-        <Route path='/pokemon' element={<PokeContainer/>}/>
-        <Route path='/robots' element={<RobotsContainer/>}/>
-        <Route path='/robots/:robotId' element={<RobotDetail/>}/>
-      </Routes>
-    </BrowserRouter>
+    <DarkModeContext.Provider value={darkMode}>
+      <FavRobotsProvider>
+        <BrowserRouter>
+          <NavBar></NavBar>
+          <ToggleDarkMode darkModeHandler={darkModeHandler}/>
+          <Routes>
+            <Route path='/' element={<Saludo name='Juan' age='24'/>}/>
+            <Route path='/pokemon' element={<PokeContainer/>}/>
+            <Route path='/robots' element={<RobotsContainer/>}/>
+            <Route path='/robots/:robotId' element={<RobotDetail/>}/>
+          </Routes>
+        </BrowserRouter>
+      </FavRobotsProvider>
+    </DarkModeContext.Provider>
   );
 }
 

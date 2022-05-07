@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import FavRobotsProvider from "../../context/favRobotsContext";
 import { robotsData } from "../../data/robotsData"
+import FavRobots from "./FavRobots";
 import RobotCard from "./RobotCard";
 
 const RobotsContainer = () => {
@@ -18,18 +20,22 @@ const RobotsContainer = () => {
     return new Promise( (resolve, reject) => {
       setTimeout(() => {
         resolve(robotsData)
-      }, 2000);
+      }, 1000);
     })
   }
 
   return (
-    <div>
-      { loading ?
-        <h1>loading ...</h1>
-      :
-        robots.map( r => <RobotCard key={r.id} data={r} />)
-      }
-    </div>
+    <>
+      <FavRobots/>
+      <div>
+        { loading ?
+          <h1>loading ...</h1>
+        :
+          robots.map( r => <RobotCard key={r.id} data={r} />)
+        }
+      </div>
+      <FavRobots/>
+    </>
   )
 }
 export default RobotsContainer
