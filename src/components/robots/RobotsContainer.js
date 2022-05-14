@@ -20,19 +20,19 @@ const RobotsContainer = () => {
     return new Promise( (resolve, reject) => {
       setTimeout(() => {
         resolve(robotsData)
-      }, 1000);
+      }, 3000);
     })
+  }
+
+  if ( loading ) {
+    return <h1 className="text-3xl">loading ...</h1>
   }
 
   return (
     <>
       <FavRobots/>
       <div>
-        { loading ?
-          <h1>loading ...</h1>
-        :
-          robots.map( r => <RobotCard key={r.id} data={r} />)
-        }
+        { robots.map( r => <RobotCard key={r.id} data={r} /> ) }
       </div>
       <FavRobots/>
     </>
