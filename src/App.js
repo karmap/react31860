@@ -16,6 +16,8 @@ import { DarkModeContext } from './context/darkModeContext';
 import { useState } from 'react';
 import ToggleDarkMode from './components/ToggleDarkMode';
 import FavRobotsProvider from './context/favRobotsContext';
+import MilanesaNapolitana from './components/shop/MilanesaNapolitana';
+import Milanesas from './components/shop/Milanesas';
 
 function App() {
 
@@ -45,6 +47,8 @@ function App() {
             <Route path='/pokemon' element={<PokeContainer/>}/>
             <Route path='/robots' element={<RobotsContainer/>}/>
             <Route path='/robots/:robotId' element={<RobotDetail/>}/>
+            <Route path='/milanesa' element={<MilanesaNapolitana/>}/>
+            <Route path='/milanesas' element={<Milanesas/>}/>
           </Routes>
         </BrowserRouter>
       </FavRobotsProvider>

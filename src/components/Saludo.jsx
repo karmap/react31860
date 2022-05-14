@@ -6,7 +6,7 @@ const Saludo = (props) => {
     const darkMode = useContext(DarkModeContext)
     // props.action ---> miFuncion()
     return (
-        <div className={ darkMode && 'bg-gray-400'}>
+        <div>
             <h1 className="text-3xl">Mi primer componente</h1>
             <div className="text-3xl">Saludos {props.name}</div>
             <div>Tienes {props.age} años</div>
