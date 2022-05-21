@@ -1,10 +1,10 @@
-import { memo, useContext, useEffect } from "react"
+import { memo, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { FavRobotsContext } from "../../context/favRobotsContext"
+import { useFavs } from "../../context/favRobotsContext"
 
 const RobotCard = memo( ( {data, darkMode = false} ) => {
 
-  const { addToFavorites } = useContext(FavRobotsContext)
+  const { addToFavorites } = useFavs()
 
   // useEffect(() => {
   //   console.log('Mounting robot card...');

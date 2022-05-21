@@ -18,6 +18,7 @@ import ToggleDarkMode from './components/ToggleDarkMode';
 import FavRobotsProvider from './context/favRobotsContext';
 import MilanesaNapolitana from './components/shop/MilanesaNapolitana';
 import Milanesas from './components/shop/Milanesas';
+import SaveFavs from './components/robots/SaveFavs';
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
             <Route path='/robots/:robotId' element={<RobotDetail/>}/>
             <Route path='/milanesa' element={<MilanesaNapolitana/>}/>
             <Route path='/milanesas' element={<Milanesas/>}/>
+            <Route path='/salvarfavs' element={<SaveFavs/>}/>
           </Routes>
         </BrowserRouter>
       </FavRobotsProvider>

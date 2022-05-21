@@ -1,4 +1,4 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const FavRobotsContext = createContext({
   favorites: [99],
@@ -28,3 +28,7 @@ const FavRobotsProvider = ({ children }) => {
   )
 }
 export default FavRobotsProvider
+
+export const useFavs = () => {
+  return useContext(FavRobotsContext)
+}

@@ -29,7 +29,7 @@ const RobotsContainer = () => {
     return new Promise( (resolve, reject) => {
       setTimeout(() => {
         resolve(robotsData)
-      }, 3000);
+      }, 1000);
     })
   }
 
